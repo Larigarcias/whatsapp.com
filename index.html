@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Empresa - Tráfego Orgânico Sustentável</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --maroon: #800000;
+            --maroon-dark: #660000;
+            --gainsboro: #DCDCDC;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #F0F0F0;
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--gainsboro);
+            overflow-x: hidden; /* Evita scroll horizontal indesejado */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--maroon);
+            margin-bottom: 15px;
+        }
+
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animações Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gainsboro) 0%, #C0C0C0 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px;
+            color: var(--text-dark);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%; /* Largura maior para o movimento */
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(128, 0, 0, 0.05), /* Maroon muito transparente */
+                rgba(128, 0, 0, 0.05) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            background-size: 40px 40px;
+            animation: bgMove 30s linear infinite alternate; /* Animação lenta */
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.2s; /* Atraso para aparecer depois do fundo */
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            color: var(--maroon);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-dark);
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-button {
+            display: inline-flex; /* Para alinhar o ícone e o texto */
+            align-items: center;
+            background-color: var(--maroon);
+            color: var(--white);
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite; /* Animação de pulsar */
+        }
+
+        .whatsapp-button:hover {
+            background-color: var(--maroon-dark);
+            transform: translateY(-5px); /* Efeito de 'subir' no hover */
+            animation: none; /* Remove o pulsar no hover */
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+            margin-right: 12px;
+        }
+
+        /* Seção de Benefícios */
+        .benefits-section {
+            background-color: var(--maroon);
+            color: var(--text-light);
+        }
+
+        .benefits-section h2 {
+            color: var(--white);
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            background-color: rgba(255, 255, 255, 0.1); /* Um branco transparente */
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.8s ease-out forwards; /* Animação ao entrar na tela */
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Começa um pouco abaixo */
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-item h3 {
+            color: var(--white);
+            font-size: 1.6em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item p {
+            font-size: 1.1em;
+            color: var(--text-light);
+        }
+
+        .benefit-item .icon {
+            font-size: 3em; /* Para ícones de fontes */
+            color: var(--white);
+            line-height: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--maroon-dark);
+            color: var(--white);
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .whatsapp-button {
+                font-size: 1.2em;
+                padding: 15px 30px;
+            }
+            .whatsapp-button img {
+                width: 25px;
+                height: 25px;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .benefits-section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .benefit-item {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .whatsapp-button {
+                width: 100%; /* Ocupa toda a largura em telas muito pequenas */
+                max-width: 300px;
+            }
+            .benefit-item h3 {
+                font-size: 1.4em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Aprenda a vender com tráfego orgânico!!</h1>
+            <p>Transforme seu perfil em uma vitrine de vendas, ganhe autoridade no seu nicho e venda todos os dias, mesmo com poucos seguidores.</p>
+            <a href="https://wa.me/5542998290057?text=Oláá,%20eu%20gostaria%20de%20ter%20mais%20informacoes%20sobre%20o%20organico" class="whatsapp-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone WhatsApp">
+                Fale comigo no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Por que Investir em Tráfego Orgânico?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item" data-animation-delay="0s">
+                    <span class="icon">📈</span>
+                    <h3>Crescimento Sustentável</h3>
+                    <p>Construa uma presença sólida e duradoura, atraindo visitantes de forma contínua, sem depender de anúncios ou gastar todos os meses.</p>
+                </div>
+                <div class="benefit-item" data-animation-delay="0.2s">
+                    <span class="icon">🎯</span>
+                    <h3>Público Qualificado</h3>
+                    <p>Apareça exatamente para quem está procurando pelo que você oferece. Gente com interesse real e pronta pra comprar.</p>
+                </div>
+                <div class="benefit-item" data-animation-delay="0.4s">
+                    <span class="icon">🏆</span>
+                    <h3>Autoridade e Credibilidade</h3>
+                    <p>Seja reconhecido como referência no seu nicho. Conteúdo bem posicionado gera confiança, influência e vendas consistentes.</p>
+                </div>
+                <div class="benefit-item" data-animation-delay="0.6s">
+                    <span class="icon">💸</span>
+                    <h3>Melhor Custo-Benefício</h3>
+                    <p>Invista tempo e estratégia, não dinheiro. O tráfego orgânico continua trazendo resultados por muito mais tempo e baixo custo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sua Empresa. Todos os direitos reservados.</p>
+            </div>
+    </footer>
+
+    <script>
+        // JavaScript para Animação ao Rolar (on-scroll)
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateOnScrollElements = document.querySelectorAll('.benefit-item');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Elemento visível em 15% para ativar a animação
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.dataset.animationDelay || '0s';
+                        entry.target.style.animationDelay = delay;
+                        entry.target.style.animationName = 'fadeIn';
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target); // Deixa de observar depois de animar
+                    }
+                });
+            }, observerOptions);
+
+            animateOnScrollElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
